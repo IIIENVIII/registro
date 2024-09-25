@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inserimento Voti Studenti</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        input[type="number"] {
+            width: 60px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Inserimento Voti Studenti</h1>
+
+<button onclick="creaVoti()">Crea Voti</button>
+
+<div id="verificaSection" style="display:none;">
+    <h2>Nuova Verifica</h2>
+    <label for="giorno">Giorno:</label>
+    <input type="text" id="giorno" placeholder="Inserisci il giorno"><br><br>
+    <label for="descrizione">Descrizione:</label>
+    <input type="text" id="descrizione" placeholder="Inserisci la descrizione"><br><br>
+    <label for="materia">Materia:</label>
+    <input type="text" id="materia" placeholder="Inserisci la materia"><br><br>
+    <button onclick="creaTabella()">Crea</button>
+</div>
+
+<div id="tabellaVoti" style="margin-top: 20px;"></div>
+
+<script>
+    const studenti = [
+        "Stellina Dematteis", "Tartaruga Benua", "Yucky Benua",
+        "Lollo Benua", "Briciola Dematteis", "Leonard Benua",
+        "Sparcky Benua", "Flaffy Dematteis", "Tina Dematteis",
+        "Grigetta Benua", "Luna Dematteis", "Luna Benua",
+        "Kendy Dematteis", "Papero Benua", "Attiglio Dematteis",
+        "Sunny Benua", "Curt Dematteis", "Lampo Benua",
+        "Cane Dematteis", "Cane Benua", "Mician Dematteis",
+        "Cicciobello Pastelli", "Michael Arancini", "Cattivo Pastelli",
+        "Bambola Fagiolini", "Teschio Temperini", "Robottina Temperini"
+    ];
+
+    function creaVoti() {
+        document.getElementById('verificaSection').style.display = 'block';
+    }
+
+    function creaTabella() {
+        const giorno = document.getElementById('giorno').value;
+        const descrizione = document.getElementById('descrizione').value;
+        const materia = document.getElementById('materia').value;
+
+        if (!giorno || !descrizione || !materia) {
+            alert("Per favore, compila tutti i campi.");
+            return;
+        }
+
+        let tabellaHTML = `<h3>Verifica del ${giorno} - ${descrizione} (${materia})</h3>`;
+        tabellaHTML += `<table><tr><th>Studente</th><th>Voto</th></tr>`;
+
+        studenti.forEach(studente => {
+            tabellaHTML += `<tr>
+                <td>${studente}</td>
+                <td><input type="number" min="10" max="100" placeholder="Voto"></td>
+            </tr>`;
+        });
+
+        tabellaHTML += `</table>`;
+        document.getElementById('tabellaVoti').innerHTML = tabellaHTML;
+
+        // Clear the input fields
+        document.getElementById('giorno').value = '';
+        document.getElementById('descrizione').value = '';
+        document.getElementById('materia').value = '';
+    }
+</script>
+
+</body>
+</html>
