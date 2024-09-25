@@ -3,23 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro Elettronico</title>                                   
-<html lang="it">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Verifiche e Informazioni</title>
-</head>
-<body><a href="comunicazioni.html">
-        <button>Verifiche e Informazioni</button>
-    </a>
-</body>
-</html>
+    <title>Vita Scolastica</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
         table {
             width: 100%;
             border-collapse: collapse;
@@ -30,75 +15,25 @@
         }
         th, td {
             padding: 10px;
-            text-align: left;
+            text-align: center;
         }
-        th {
-            background-color: #f2f2f2;
-        }
-        .form-group {
-            margin-bottom: 15px;
-        }
-        .form-group label {
-            margin-right: 10px;
-        }
-        .link-verifiche {
-            color: blue;
-            text-decoration: underline;
-            cursor: pointer;
-        }
-        .centered-link {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-        }
-        .centered-link a {
-            text-decoration: none;
-            color: white;
-            background-color: #007BFF;
-            padding: 15px 25px;
-            border-radius: 5px;
-            font-size: 18px;
-        }
-        .centered-link a:hover {
-            background-color: #0056b3;
+        .totali {
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
-    <h1>Registro Elettronico</h1>
-
-    <!-- Form per aggiungere voti e ritardi -->
-    <div class="form-group">
-        <label for="student-name">Nome Studente:</label>
-        <input type="text" id="student-name">
-        <label for="subject">Materia:</label>
-        <input type="text" id="subject">
-        <label for="student-grade">Voto:</label>
-        <input type="number" id="student-grade" min="0" max="10">
-        <button onclick="addGrade()">Aggiungi Voto</button>
-    </div>
-
-    <div class="form-group">
-        <label for="late-student-name">Nome Studente:</label>
-        <input type="text" id="late-student-name">
-        <button onclick="addLate()">Aggiungi Ritardo</button>
-    </div>
-
-    <!-- Tabella degli studenti -->
-    <table id="attendance-table">
+    <h1>Vita Scolastica</h1>
+    <table id="tabella-presenze">
         <thead>
             <tr>
-                <th>Nome Studente</th>
+                <th>Nome</th>
                 <th>Presente</th>
                 <th>Assente</th>
                 <th>Ritardo</th>
-                <th>Assenze Totali</th>
-                <th>Ritardi Totali</th>
             </tr>
         </thead>
         <tbody>
-            <!-- Aggiungi qui le righe della tabella -->
-            <!-- Esempio di riga -->
             <tr>
                 <td>Stellina Dematteis</td>
                 <td><input type="radio" name="attendance1" value="Presente" onclick="updateAttendance('Stellina Dematteis', false, false)"></td>
@@ -174,7 +109,7 @@
                 <td id="absence-Grigetta Benua">0</td>
                 <td id="late-Grigetta Benua">0</td>
             </tr>
-		<td>Luna Dematteis</td>
+		  <td>Luna Dematteis</td>
                 <td><input type="radio" name="attendance11" value="Presente" onclick="updateAttendance('Luna Dematteis', false, false)"></td>
                 <td><input type="radio" name="attendance11" value="Assente" onclick="updateAttendance('Luna Dematteis', true, false)"></td>
                 <td><input type="radio" name="attendance11" value="Ritardo" onclick="updateAttendance('Luna Dematteis', false, true)"></td>
@@ -244,174 +179,114 @@
                 <td><input type="radio" name="attendance18" value="Ritardo" onclick="updateAttendance('Lampo Benua', false, true)"></td>
                 <td id="absence-Lampo Benua">0</td>
                 <td id="late-Lampo Benua">0</td>
-            <!-- Altri studenti come sopra -->
-            <!-- Aggiungi le righe per tutti gli altri studenti -->
+        </tr>
+      			<tr>
+                <td>Cane Dematteis</td>
+                <td><input type="radio" name="attendance19" value="Presente" onclick="updateAttendance('Cane Dematteis', false, false)"></td>
+                <td><input type="radio" name="attendance19" value="Assente" onclick="updateAttendance('Cane Dematteis', true, false)"></td>
+                <td><input type="radio" name="attendance19" value="Ritardo" onclick="updateAttendance('Cane Dematteis', false, true)"></td>
+                <td id="absence-Cane Dematteis">0</td>
+                <td id="late-Cane Dematteis">0</td>
+        </tr>
+      			<tr>
+                <td>Cane Benua</td>
+                <td><input type="radio" name="attendance20" value="Presente" onclick="updateAttendance('Cane Benua', false, false)"></td>
+                <td><input type="radio" name="attendance20" value="Assente" onclick="updateAttendance('Cane Benua', true, false)"></td>
+                <td><input type="radio" name="attendance20" value="Ritardo" onclick="updateAttendance('Cane Benua', false, true)"></td>
+                <td id="absence-Cane Benua">0</td>
+                <td id="late-Cane Benua">0</td>
+        </tr>
+      			<tr>
+                <td>Mician Dematteis</td>
+                <td><input type="radio" name="attendance21" value="Presente" onclick="updateAttendance('Mician Dematteis', false, false)"></td>
+                <td><input type="radio" name="attendance21" value="Assente" onclick="updateAttendance('Mician Dematteis', true, false)"></td>
+                <td><input type="radio" name="attendance21" value="Ritardo" onclick="updateAttendance('Mician Dematteis', false, true)"></td>
+                <td id="absence-Mician Dematteis">0</td>
+                <td id="late-Mician Dematteis">0</td>
+        </tr>
+      			<tr>
+                <td>Cicciobello Pastelli</td>
+                <td><input type="radio" name="attendance22" value="Presente" onclick="updateAttendance('Cicciobello Pastelli', false, false)"></td>
+                <td><input type="radio" name="attendance22" value="Assente" onclick="updateAttendance('Cicciobello Pastelli', true, false)"></td>
+                <td><input type="radio" name="attendance22" value="Ritardo" onclick="updateAttendance('Cicciobello Pastelli', false, true)"></td>
+                <td id="absence-Cicciobelli Pastelli">0</td>
+                <td id="late-cicciobello Pastelli">0</td>
+        </tr>
+      			<tr>
+                <td>Cattivo pastelli</td>
+                <td><input type="radio" name="attendance23" value="Presente" onclick="updateAttendance('Cattivo Pastelli', false, false)"></td>
+                <td><input type="radio" name="attendance23" value="Assente" onclick="updateAttendance('Cattivo Pastelli', true, false)"></td>
+                <td><input type="radio" name="attendance23" value="Ritardo" onclick="updateAttendance('Cattivo Pastelli', false, true)"></td>
+                <td id="absence-Cattivo Pastelli">0</td>
+                <td id="late-Cattivo Pastelli">0</td>
+        </tr>
+
+            <!-- Aggiungi qui gli altri nomi -->
         </tbody>
     </table>
 
-    <h2>Voti</h2>
-    <ul id="grades-list"></ul>
+    <button onclick="resetCounts()">Resetta Totali</button>
 
-    <!-- Link centrato -->
-    <div class="centered-link">
-        <a href="altro.html">Vai a Altro.html</a>
-    </div>
+    <p class="totali">Totali presenze: <span id="totali-presenze">0</span></p>
+    <p class="totali">Totali assenze: <span id="totali-assenze">0</span></p>
+    <p class="totali">Totali ritardi: <span id="totali-ritardi">0</span></p>
 
     <script>
-        // Aggiungi voto
-        function addGrade() {
-            const studentName = document.getElementById("student-name").value;
-            const subject = document.getElementById("subject").value;
-            const grade = document.getElementById("student-grade").value;
+        // Inizializza i conteggi dal localStorage
+        let presenze = parseInt(localStorage.getItem('presenze')) || 0;
+        let assenze = parseInt(localStorage.getItem('assenze')) || 0;
+        let ritardi = parseInt(localStorage.getItem('ritardi')) || 0;
 
-            if (studentName && subject && grade) {
-                const gradesList = document.getElementById("grades-list");
-                const newGrade = document.createElement("li");
-                newGrade.textContent = `${studentName} ha preso ${grade} in ${subject}`;
-                gradesList.appendChild(newGrade);
+        // Mostra i totali all'avvio
+        document.getElementById('totali-presenze').textContent = presenze;
+        document.getElementById('totali-assenze').textContent = assenze;
+        document.getElementById('totali-ritardi').textContent = ritardi;
 
-                // Salva nel localStorage
-                saveGrade(studentName, subject, grade);
-            }
-        }
+        function updateCount(tipo) {
+            // Resetta i conteggi
+            resetCounts();
 
-        // Aggiungi ritardo
-        function addLate() {
-            const studentName = document.getElementById("late-student-name").value;
-            if (studentName) {
-                updateAttendance(studentName, false, true);
-            }
-        }
+            // Conta i valori selezionati
+            const inputs = document.querySelectorAll('input[type="radio"]');
 
-        // Aggiorna presenza/assenza/ritardo
-        function updateAttendance(studentName, isAbsent, isLate) {
-            const absenceCell = document.getElementById(`absence-${studentName}`);
-            const lateCell = document.getElementById(`late-${studentName}`);
-
-            let absences = parseInt(absenceCell.textContent) || 0;
-            let lates = parseInt(lateCell.textContent) || 0;
-
-            if (isAbsent) {
-                absences++;
-                absenceCell.textContent = absences;
-            } else if (isLate) {
-                lates++;
-                lateCell.textContent = lates;
-            }
-
-            // Salva nel localStorage
-            saveAttendance(studentName, absences, lates);
-        }
-
-        // Salva voto nel localStorage
-        function saveGrade(studentName, subject, grade) {
-            const grades = JSON.parse(localStorage.getItem("grades")) || [];
-            grades.push({ studentName, subject, grade });
-            localStorage.setItem("grades", JSON.stringify(grades));
-        }
-
-        // Salva assenze e ritardi nel localStorage
-        function saveAttendance(studentName, absences, lates) {
-            const attendance = JSON.parse(localStorage.getItem("attendance")) || {};
-            attendance[studentName] = { absences, lates };
-            localStorage.setItem("attendance", JSON.stringify(attendance));
-        }
-
-        // Carica i dati salvati quando la pagina viene caricata
-        function loadSavedData() {
-            // Carica e visualizza i voti
-            const grades = JSON.parse(localStorage.getItem("grades")) || [];
-            const gradesList = document.getElementById("grades-list");
-            grades.forEach(gradeEntry => {
-                const newGrade = document.createElement("li");
-                newGrade.textContent = `${gradeEntry.studentName} ha preso ${gradeEntry.grade} in ${gradeEntry.subject}`;
-                gradesList.appendChild(newGrade);
+            inputs.forEach((input) => {
+                if (input.checked) {
+                    if (input.value === "presente") {
+                        presenze++;
+                    } else if (input.value === "assente") {
+                        assenze++;
+                    } else if (input.value === "ritardo") {
+                        ritardi++;
+                    }
+                }
             });
 
-            // Carica e visualizza assenze e ritardi
-            const attendance = JSON.parse(localStorage.getItem("attendance")) || {};
-            Object.keys(attendance).forEach(studentName => {
-                const { absences, lates } = attendance[studentName];
-                document.getElementById(`absence-${studentName}`).textContent = absences;
-                document.getElementById(`late-${studentName}`).textContent = lates;
-            });
+            // Aggiorna i totali sul documento
+            document.getElementById('totali-presenze').textContent = presenze;
+            document.getElementById('totali-assenze').textContent = assenze;
+            document.getElementById('totali-ritardi').textContent = ritardi;
+
+            // Salva i conteggi nel localStorage
+            localStorage.setItem('presenze', presenze);
+            localStorage.setItem('assenze', assenze);
+            localStorage.setItem('ritardi', ritardi);
         }
 
-        // Esegui il caricamento dei dati salvati all'inizio
-        window.onload = loadSavedData;
+        function resetCounts() {
+            presenze = 0;
+            assenze = 0;
+            ritardi = 0;
+
+            // Aggiorna i totali sul documento
+            document.getElementById('totali-presenze').textContent = presenze;
+            document.getElementById('totali-assenze').textContent = assenze;
+            document.getElementById('totali-ritardi').textContent = ritardi;
+
+            // Resetta i dati nel localStorage
+            localStorage.removeItem('presenze');
+            localStorage.removeItem('assenze');
+            localStorage.removeItem('ritardi');
+        }
     </script>
 </body>
 </html>
-<!DOCTYPE html>
-<html lang="it">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pagina con Local Storage</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-    </style>
-</head>
-<body>
-    <h1>Salva il testo anche dopo l'aggiornamento</h1>
-    <textarea id="textInput" rows="10" cols="30" placeholder="Scrivi qualcosa..."></textarea>
-    <button id="saveButton">Salva</button>
-
-    <script>
-        // Recupera il testo salvato e lo mostra nel textarea
-        document.addEventListener('DOMContentLoaded', () => {
-            const textInput = document.getElementById('textInput');
-            const savedText = localStorage.getItem('savedText');
-            if (savedText) {
-                textInput.value = savedText;
-            }
-        });
-
-        // Salva il testo nel local storage quando il bottone è cliccato
-        document.getElementById('saveButton').addEventListener('click', () => {
-            const textInput = document.getElementById('textInput');
-            localStorage.setItem('savedText', textInput.value);
-            alert('Testo salvato!');
-        });
-    </script>
-</body>
-</html>
-
-
-<!DOCTYPE html>
-<html lang="it">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Censure, Ammonizioni e Sospensioni</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
-            margin: 0;
-            padding: 20px;
-        }
-        h1 {
-            color: #0056b3;
-        }
-        .link-row {
-            display: flex;
-            gap: 20px;
-            font-size: 18px;
-        }
-        a {
-            text-decoration: none;
-            color: #0056b3;
-            font-weight: bold;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-    </style>
-</head>
-<body>
-
