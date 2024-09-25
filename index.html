@@ -1,36 +1,85 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CFP Cebano Monregalese</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            text-align: center;
+            padding-top: 50px;
+        }
+        .menu {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: inline-block;
+            padding: 20px;
+        }
+        .menu-item {
+            margin: 10px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            text-align: left;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .menu-item img {
+            margin-right: 15px;
+        }
+        .menu-item:hover {
+            background-color: #e0e0e0;
+        }
+        footer {
+            position: fixed;
+            bottom: 10px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
 
- <base target="_blank">
- <link rel="schema.DC" href="http://purl.org/dc/elements/1.1/">
- <title>HYPERPLANNING - HYPERPLANNING</title>
- <meta name="DC.title" content="HYPERPLANNING - HYPERPLANNING">
- <meta name="description" content="HYPERPLANNING accueil - CFP CEBANO MONREGALESE - Ceva - gestione del planning e delle aule per le università e i centri di formazione.">
- <meta name="DC.description" content="HYPERPLANNING accueil - CFP CEBANO MONREGALESE - Ceva - gestione del planning e delle aule per le università e i centri di formazione.">
- <meta name="DC.creator" content="CFP CEBANO MONREGALESE">
- <meta name="DC.publisher" content="HYPERPLANNING">
- <meta name="DC.coverage" content="Ceva">
- <meta name="geo.placename" content="Ceva">
- <meta name="robots" content="index">
- <link rel="apple-touch-icon" sizes="180x180" href="./images/apple-touch-icon.png">
- <link rel="icon" type="image/png" href="./images/favicon-32x32.png" sizes="32x32">
- <link rel="icon" type="image/png" href="./images/favicon-16x16.png" sizes="16x16">
- <link rel="manifest" href="./images/manifest.json">
- <link rel="mask-icon" sizes="any" href="./images/favicon.svg" color="#800040">
- <meta name="apple-mobile-web-app-title" content="HYPERPLANNING">
- <meta name="application-name" content="HYPERPLANNING">
- <meta name="theme-color" content="#800040">
-<link rel="stylesheet" type="text/css" href="E_3_C_3ECA618B586EC6B1C1FB5E93E1894D67C7BF1E40F5406798F695365DE454B360_L_1040/espace/css/accueil.css">
-<script type="text/javascript" src="E_3_C_9E1FB766B460A12E2D3F1A45DBD21720421116260AD6A2A8A56BF59A99E65416_L_1040/accueil_ext.js"></script>
-<script type="text/javascript" src="E_3_C_3E0156BF3AA5FC301CE61C811FA18C6E6E10AD2F9E29F0CD704655D17A417FFA_L_1040/traductions.js"></script>
-<script type="text/javascript" src="E_3_C__L_1040/imagesconnexion.js"></script>
-<script type="text/javascript" src="E_3_C_296E43083F4179A994319E98608F93E73F4E399AF537220CB4FFF33E41F10466_L_1040/accueil.js"></script>
-<script type="text/javascript">
-const {deferLoadingScript} = require('deferLoadingScript.js')
-deferLoadingScript.add ('jspdf', ['E_3_C_D9F97D890939B22C680BAC23E8365BF13EFB3D011C7647211FCB3B88F1FDE05A_L_1040/accueil_jspdf.js']);
-deferLoadingScript.add ('signature-pad', ['E_3_C_8BC556A9D8D419234B409E8A173FE39B4D1F6DC38938938F0AB534A1F51210BD_L_1040/accueil_signature-pad.js']);
-deferLoadingScript.add ('pep_poly', ['E_3_C_83CDBF56E33150423A376ACD38E95F37664C087ECB925AE3BDF42FD16E9B5B9C_L_1040/accueil_pep_poly.js']);
-</script>
- <script type="text/javascript">
-function messageErreur (e) {
-$.get("erreur/" + e).fail(function (){}); alert ("Errore di caricamento pagina. Siete pregati di svuotare la cache del vostro browser.")}
- </script>
-<meta name="application-name" content="HyperPlanning">
+    <div class="container">
+        <div class="menu">
+            <div class="menu-item" onclick="location.href='login.html?area=docenti'">
+                <img src="https://via.placeholder.com/50" alt="Icona Docenti">
+                <span>Area Docenti</span>
+            </div>
+            <div class="menu-item" onclick="location.href='login.html?area=segreteria'">
+                <img src="https://via.placeholder.com/50" alt="Icona Segreteria">
+                <span>Area Segreteria / Resp. Corso</span>
+            </div>
+            <div class="menu-item" onclick="location.href='login.html?area=aule'">
+                <img src="https://via.placeholder.com/50" alt="Icona Aule">
+                <span>Area Addetti aule</span>
+            </div>
+            <div class="menu-item" onclick="location.href='login.html?area=studenti'">
+                <img src="https://via.placeholder.com/50" alt="Icona Studenti">
+                <span>Area Studenti</span>
+            </div>
+            <div class="menu-item" onclick="location.href='login.html?area=genitori'">
+                <img src="https://via.placeholder.com/50" alt="Icona Genitori">
+                <span>Area Genitori</span>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        © INDEX-EDUCATION.COM / HYPERPLANNING 2024.0.8.0
+    </footer>
+
+</body>
+</html>
