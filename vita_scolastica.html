@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vita Scolastica</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+            text-align: center;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Registro di Classe</h1>
+    <table id="attendanceTable">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Presente</th>
+                <th>Assente</th>
+                <th>Ritardo</th>
+                <th>Totali Presenze</th>
+                <th>Totali Assenze</th>
+                <th>Totali Ritardi</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Righe generate dinamicamente da JavaScript -->
+        </tbody>
+    </table>
+
+    <script>
+        const students = [
+            'Stellina Dematteis', 'Tartaruga Benua', 'Yucky Benua', 'Lollo Benua', 'Briciola Dematteis',
+            'Leonard Benua', 'Sparcky Benua', 'Flaffy Dematteis', 'Tina Dematteis', 'Grigetta Benua', 
+            'Luna Dematteis', 'Luna Benua', 'Kendy Dematteis', 'Papero Benua', 'Attiglio Dematteis',
+            'Sunny Benua', 'Curt Dematteis', 'Lampo Benua', 'Cane Dematteis', 'Cane Benua',
+            'Mician Dematteis', 'Cicciobello Pastelli', 'Michael Arancini', 'Cattivo Pastelli',
+            'Bambola Fagiolini', 'Teschio Temperini', 'Robottina Temperini'
+        ];
+
+        // Carica i dati salvati o crea una struttura di dati vuota
+        const loadData = () => JSON.parse(localStorage.getItem('attendanceData')) || {};
+
+        // Salva i dati in localStorage
+        const saveData = (data) => localStorage.setItem('attendanceData', JSON.stringify(data));
+
+        // Dati iniziali (vuoti o recuperati da localStorage)
+        let attendanceData = loadData();
+
+        // Funzione per aggiornare i totali e salvare
+        function updateTotals(student) {
+            const row = document.getElementById(`row-${student}`);
+            const presenceCount = attendanceData[student].presenze || 0;
+            const absenceCount = attendanceData[student].assenze || 0;
+            const delayCount = attendanceData[student].ritardi || 0;
+            row.querySelector('.presenze').textContent = presenceCount;
+            row.querySelector('.assenze').textContent = absenceCount;
+            row.querySelector('.ritardi').textContent = delayCount;
+
+            // Salva i dati aggiornati
+            saveData(attendanceData);
+        }
+
+        // Funzione per gestire i click sui pulsanti e aggiornare i dati
+        function handleClick(student, type) {
+            attendanceData[student] = attendanceData[student] || { presenze: 0, assenze: 0, ritardi: 0 };
+            attendanceData[student][type]++;
+            updateTotals(student);
+        }
+
+        // Crea le righe della tabella per ogni studente
+        function createTable() {
+            const tableBody = document.querySelector("#attendanceTable tbody");
+            students.forEach(student => {
+                const row = document.createElement('tr');
+                row.id = `row-${student}`;
+
+                // Nome
+                const nameCell = document.createElement('td');
+                nameCell.textContent = student;
+                row.appendChild(nameCell);
+
+                // Bottone Presente
+                const presentCell = document.createElement('td');
+                const presentBtn = document.createElement('button');
+                presentBtn.textContent = 'Presente';
+                presentBtn.onclick = () => handleClick(student, 'presenze');
+                presentCell.appendChild(presentBtn);
+                row.appendChild(presentCell);
+
+                // Bottone Assente
+                const absentCell = document.createElement('td');
+                const absentBtn = document.createElement('button');
+                absentBtn.textContent = 'Assente';
+                absentBtn.onclick = () => handleClick(student, 'assenze');
+                absentCell.appendChild(absentBtn);
+                row.appendChild(absentCell);
+
+                // Bottone Ritardo
+                const delayCell = document.createElement('td');
+                const delayBtn = document.createElement('button');
+                delayBtn.textContent = 'Ritardo';
+                delayBtn.onclick = () => handleClick(student, 'ritardi');
+                delayCell.appendChild(delayBtn);
+                row.appendChild(delayCell);
+
+                // Totali
+                const totalPresenceCell = document.createElement('td');
+                totalPresenceCell.className = 'presenze';
+                row.appendChild(totalPresenceCell);
+
+                const totalAbsenceCell = document.createElement('td');
+                totalAbsenceCell.className = 'assenze';
+                row.appendChild(totalAbsenceCell);
+
+                const totalDelayCell = document.createElement('td');
+                totalDelayCell.className = 'ritardi';
+                row.appendChild(totalDelayCell);
+
+                // Append the row to the table
+                tableBody.appendChild(row);
+
+                // Aggiorna i totali iniziali se presenti
+                updateTotals(student);
+            });
+        }
+
+        // Creazione della tabella all'avvio
+        createTable();
+    </script>
+
+</body>
+</html>
