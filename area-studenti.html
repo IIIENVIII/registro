@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Area Studenti</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Ensure to link a CSS file for styles -->
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li> <!-- Home button to main page -->
+                <li><a href="attivita.html">Attività</a></li>
+                <li><a href="vita_scolastica.html">Vita scolastica</a></li>
+                <li><a href="didattica.html">Didattica</a></li>
+                <li><a href="risultati.html">Risultati</a></li>
+                <li><a href="comunicazione.html">Comunicazione</a></li>
+                <li><a href="informazioni_personali.html">Informazioni personali</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content Area -->
+    <main>
+        <div class="container">
+            <aside class="left-panel">
+                <!-- Calendar Section -->
+                <div class="calendar">
+                    <h3>Settimana 39</h3>
+                    <input type="date" id="calendario" name="calendario">
+                    <!-- Navigation Arrows -->
+                    <button onclick="loadPreviousDay()">&#x2190;</button>
+                    <button onclick="loadNextDay()">&#x2192;</button>
+                </div>
+
+                <!-- Daily Schedule -->
+                <div id="timetable">
+                    <h3>Orario del Giorno</h3>
+                    <p>Lingua Italiana <br> 08:00 - 10:00 Aula B2</p>
+                    <p>Osteopneumatica <br> 10:00 - 12:00 Aula C3</p>
+                    <p>Accoglienza e Orientamento <br> 12:00 - 13:00 Aula B2</p>
+                </div>
+            </aside>
+
+            <section class="right-panel">
+                <h2>Pannello Studenti</h2>
+
+                <!-- Assigned Work Section -->
+                <div id="lavori-assegnati">
+                    <h4>Lavori Assegnati</h4>
+                    <p>Nessun lavoro assegnato nei prossimi 7 giorni</p>
+                    <button onclick="loadDidattica()">&#x2192;</button>
+                </div>
+
+                <!-- Latest Didactic Materials Section -->
+                <div id="materiali-didattici">
+                    <h4>Ultimi Materiali Didattici</h4>
+                    <p>Nessun materiale disponibile</p>
+                    <button onclick="loadDidattica()">&#x2192;</button>
+                </div>
+
+                <!-- Attendance Section -->
+                <div id="frequenza">
+                    <h4>Frequenza</h4>
+                    <p>Nessun nuovo evento</p>
+                    <button onclick="loadVitaScolastica()">&#x2192;</button>
+                </div>
+
+                <!-- Latest Grades Section -->
+                <div id="ultimi-voti">
+                    <h4>Ultimi Voti</h4>
+                    <p>Nessun nuovo voto</p>
+                    <button onclick="loadRisultati()">&#x2192;</button>
+                </div>
+
+                <!-- Appello (Attendance List) -->
+                <div id="appello">
+                    <h4>Appello</h4>
+                    <button onclick="loadAppello()">&#x2192;</button>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Linking to external script -->
+    <script src="script.js"></script>
+</body>
+</html>
+// Navigation Logic
+function loadDidattica() {
+    window.location.href = "didattica.html"; // Redirects to the Didattica section
+}
+
+function loadVitaScolastica() {
+    window.location.href = "vita_scolastica.html"; // Redirects to Vita Scolastica
+}
+
+function loadRisultati() {
+    window.location.href = "risultati.html"; // Redirects to Risultati (Grades)
+}
+
+function loadAppello() {
+    window.location.href = "appello.html"; // Redirects to Appello (Attendance List)
+}
+
+// Function to switch between days in the calendar
+function loadPreviousDay() {
+    // Logic to load the previous day's schedule
+    console.log("Loading previous day");
+}
+
+function loadNextDay() {
+    // Logic to load the next day's schedule
+    console.log("Loading next day");
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+header {
+    background-color: #343a40;
+    color: white;
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+.container {
+    display: flex;
+    padding: 20px;
+}
+
+.left-panel, .right-panel {
+    padding: 20px;
+}
+
+.left-panel {
+    width: 30%;
+    background-color: #f8f9fa;
+    border-right: 1px solid #e9ecef;
+}
+
+.right-panel {
+    width: 70%;
+}
+
+h4 {
+    margin-top: 0;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.calendar {
+    margin-bottom: 20px;
+}
+
+#timetable {
+    background-color: #fff;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+<!-- Teacher Dashboard for Schedule and Grade Entry -->
+<section id="teacher-dashboard">
+    <h2>Inserisci Orario</h2>
+    <form action="submit_schedule.php" method="post">
+        <label for="materia">Materia:</label>
+        <input type="text" id="materia" name="materia" placeholder="Inserisci materia">
+        <br>
+        <label for="docente">Docente:</label>
+        <input type="text" id="docente" name="docente" placeholder="Inserisci nome docente">
+        <br>
+        <label for="ora">Ora:</label>
+        <input type="time" id="ora" name="ora">
+        <br>
+        <button type="submit">Crea Orario</button>
+    </form>
+
+    <h2>Inserimento Voti Studenti</h2>
+    <button onclick="createGradesTable()">Crea Voti</button>
+
+    <!-- Student Grade Table -->
+    <div id="grade-table">
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome Studente</th>
+                    <th>V
