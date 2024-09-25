@@ -8,137 +8,300 @@
         table {
             width: 100%;
             border-collapse: collapse;
+            margin-bottom: 20px;
         }
         table, th, td {
             border: 1px solid black;
-            text-align: center;
-            padding: 8px;
         }
-        th {
-            background-color: #f2f2f2;
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+        .totali {
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
-
-    <h1>Registro di Classe</h1>
-    <table id="attendanceTable">
+    <h1>Vita Scolastica</h1>
+    <table id="tabella-presenze">
         <thead>
             <tr>
                 <th>Nome</th>
                 <th>Presente</th>
                 <th>Assente</th>
                 <th>Ritardo</th>
-                <th>Totali Presenze</th>
-                <th>Totali Assenze</th>
-                <th>Totali Ritardi</th>
             </tr>
         </thead>
         <tbody>
-            <!-- Righe generate dinamicamente da JavaScript -->
+            <!-- Lista dei nomi con opzioni per Presente, Assente, Ritardo -->
+            <tr>
+<tr>
+                <td>Stellina Dematteis</td>
+                <td><input type="radio" name="attendance1" value="Presente" onclick="updateAttendance('Stellina Dematteis', false, false)"></td>
+                <td><input type="radio" name="attendance1" value="Assente" onclick="updateAttendance('Stellina Dematteis', true, false)"></td>
+                <td><input type="radio" name="attendance1" value="Ritardo" onclick="updateAttendance('Stellina Dematteis', false, true)"></td>
+                <td id="absence-Stellina Dematteis">0</td>
+                <td id="late-Stellina Dematteis">0</td>
+            </tr>
+		            </tr>
+		            <tr>
+                <td>Tartaruga Benua</td>
+                <td><input type="radio" name="attendance2" value="Presente" onclick="updateAttendance('Tartaruga Benua', false, false)"></td>
+                <td><input type="radio" name="attendance2" value="Assente" onclick="updateAttendance('Tartaruga Benua', true, false)"></td>
+                <td><input type="radio" name="attendance2" value="Ritardo" onclick="updateAttendance('Tartaruga Benua', false, true)"></td>
+                <td id="absence-Tartaruga Benua">0</td>
+                <td id="late-Tartaruga Benua">0</td>
+            </tr>
+            <tr>
+                <td>Yucky Benua</td>
+                <td><input type="radio" name="attendance3" value="Presente" onclick="updateAttendance('Yucky Benua', false, false)"></td>
+                <td><input type="radio" name="attendance3" value="Assente" onclick="updateAttendance('Yucky Benua', true, false)"></td>
+                <td><input type="radio" name="attendance3" value="Ritardo" onclick="updateAttendance('Yucky Benua', false, true)"></td>
+                <td id="absence-Yucky Benua">0</td>
+                <td id="late-Yucky Benua">0</td>
+            </tr>
+            <!-- Aggiungi gli altri studenti con lo stesso schema -->
+            <tr>
+                <td>Lollo Benua</td>
+                <td><input type="radio" name="attendance4" value="Presente" onclick="updateAttendance('Lollo Benua', false, false)"></td>
+                <td><input type="radio" name="attendance4" value="Assente" onclick="updateAttendance('Lollo Benua', true, false)"></td>
+                <td><input type="radio" name="attendance4" value="Ritardo" onclick="updateAttendance('Lollo Benua', false, true)"></td>
+                <td id="absence-Lollo Benua">0</td>
+                <td id="late-Lollo Benua">0</td>
+            </tr>
+		
+            <tr>
+                <td>Leondard Benua</td>
+                <td><input type="radio" name="attendance6" value="Presente" onclick="updateAttendance('Leondard Benua', false, false)"></td>
+                <td><input type="radio" name="attendance6" value="Assente" onclick="updateAttendance('Leondard Benua', true, false)"></td>
+                <td><input type="radio" name="attendance6" value="Ritardo" onclick="updateAttendance('Leondard Benua', false, true)"></td>
+                <td id="absence-Leondard Benua">0</td>
+                <td id="late-Leondard Benua">0</td>
+            </tr>
+            <tr>
+                <td>Sparcky Benua</td>
+                <td><input type="radio" name="attendance7" value="Presente" onclick="updateAttendance('Sparcky Benua', false, false)"></td>
+                <td><input type="radio" name="attendance7" value="Assente" onclick="updateAttendance('Sparcky Benua', true, false)"></td>
+                <td><input type="radio" name="attendance7" value="Ritardo" onclick="updateAttendance('Sparcky Benua', false, true)"></td>
+                <td id="absence-Sparcky Benua">0</td>
+                <td id="late-Sparcky Benua">0</td>
+            </tr>
+            <tr>
+                <td>Flaffy Dematteis</td>
+                <td><input type="radio" name="attendance8" value="Presente" onclick="updateAttendance('Flaffy Dematteis', false, false)"></td>
+                <td><input type="radio" name="attendance8" value="Assente" onclick="updateAttendance('Flaffy Dematteis', true, false)"></td>
+                <td><input type="radio" name="attendance8" value="Ritardo" onclick="updateAttendance('Flaffy Dematteis', false, true)"></td>
+                <td id="absence-Flaffy Dematteis">0</td>
+                <td id="late-Flaffy Dematteis">0</td>
+            </tr>
+            <tr>
+                <td>Tina Dematteis</td>
+                <td><input type="radio" name="attendance9" value="Presente" onclick="updateAttendance('Tina Dematteis', false, false)"></td>
+                <td><input type="radio" name="attendance9" value="Assente" onclick="updateAttendance('Tina Dematteis', true, false)"></td>
+                <td><input type="radio" name="attendance9" value="Ritardo" onclick="updateAttendance('Tina Dematteis', false, true)"></td>
+                <td id="absence-Tina Dematteis">0</td>
+                <td id="late-Tina Dematteis">0</td>
+            </tr>
+            <tr>
+                <td>Grigetta Benua</td>
+                <td><input type="radio" name="attendance10" value="Presente" onclick="updateAttendance('Grigetta Benua', false, false)"></td>
+                <td><input type="radio" name="attendance10" value="Assente" onclick="updateAttendance('Grigetta Benua', true, false)"></td>
+                <td><input type="radio" name="attendance10" value="Ritardo" onclick="updateAttendance('Grigetta Benua', false, true)"></td>
+                <td id="absence-Grigetta Benua">0</td>
+                <td id="late-Grigetta Benua">0</td>
+            </tr>
+		  <td>Luna Dematteis</td>
+                <td><input type="radio" name="attendance11" value="Presente" onclick="updateAttendance('Luna Dematteis', false, false)"></td>
+                <td><input type="radio" name="attendance11" value="Assente" onclick="updateAttendance('Luna Dematteis', true, false)"></td>
+                <td><input type="radio" name="attendance11" value="Ritardo" onclick="updateAttendance('Luna Dematteis', false, true)"></td>
+                <td id="absence-Luna Dematteis">0</td>
+                <td id="late-Luna Dematteis">0</td>
+            </tr>
+			<tr>
+                <td>Luna Benua</td>
+                <td><input type="radio" name="attendance12" value="Presente" onclick="updateAttendance('Luna Benua', false, false)"></td>
+                <td><input type="radio" name="attendance12" value="Assente" onclick="updateAttendance('Luna Benua', true, false)"></td>
+                <td><input type="radio" name="attendance12" value="Ritardo" onclick="updateAttendance('Luna Benua', false, true)"></td>
+                <td id="absence-Luna Benua">0</td>
+                <td id="late-Luna Benua">0</td>
+            </tr>
+			<tr>
+                <td>Kendy Dematteis</td>
+                <td><input type="radio" name="attendance13" value="Presente" onclick="updateAttendance('Kendy Dematteis', false, false)"></td>
+                <td><input type="radio" name="attendance13" value="Assente" onclick="updateAttendance('Kendy Dematteis', true, false)"></td>
+                <td><input type="radio" name="attendance13" value="Ritardo" onclick="updateAttendance('Kendy Dematteis', false, true)"></td>
+                <td id="absence-Kendy Dematteis">0</td>
+                <td id="late-Kendy Dematteis">0</td>
+            </tr>
+			<tr>
+                <td>Papero Benua</td>
+                <td><input type="radio" name="attendance14" value="Presente" onclick="updateAttendance('Papero Benua', false, false)"></td>
+                <td><input type="radio" name="attendance14" value="Assente" onclick="updateAttendance('Papero Benua', true, false)"></td>
+                <td><input type="radio" name="attendance14" value="Ritardo" onclick="updateAttendance('Papero Benua', false, true)"></td>
+                <td id="absence-Papero Benua">0</td>
+                <td id="late-Papero Benua">0</td>
+            </tr>
+			<tr>
+                <td>Attiglio Dematteis</td>
+                <td><input type="radio" name="attendance15" value="Presente" onclick="updateAttendance('Attiglio Dematteis', false, false)"></td>
+                <td><input type="radio" name="attendance15" value="Assente" onclick="updateAttendance('Attiglio Dematteis', true, false)"></td>
+                <td><input type="radio" name="attendance15" value="Ritardo" onclick="updateAttendance('Attiglio Dematteis', false, true)"></td>
+                <td id="absence-Attiglio Dematteis">0</td>
+                <td id="late-Attiglio Dematteis">0</td>
+            </tr>
+			<tr>
+                <td>Sunny Benua</td>
+                <td><input type="radio" name="attendance16" value="Presente" onclick="updateAttendance('Sunny Benua', false, false)"></td>
+                <td><input type="radio" name="attendance16" value="Assente" onclick="updateAttendance('Sunny Benua', true, false)"></td>
+                <td><input type="radio" name="attendance16" value="Ritardo" onclick="updateAttendance('Sunny Sunny', false, true)"></td>
+                <td id="absence-Sunny Benua">0</td>
+                <td id="late-Sunny Benua">0</td>
+            </tr>
+			<tr>
+                <td>Curt Dematteis</td>
+                <td><input type="radio" name="attendance17" value="Presente" onclick="updateAttendance('Curt Dematteis', false, false)"></td>
+                <td><input type="radio" name="attendance17" value="Assente" onclick="updateAttendance('Curt Dematteis', true, false)"></td>
+                <td><input type="radio" name="attendance17" value="Ritardo" onclick="updateAttendance('Curt Dematteis', false, true)"></td>
+                <td id="absence-Curt Dematteis">0</td>
+                <td id="late-Curt Dematteis">0</td>
+            </tr>
+	    <tr>
+                <td>Briciola Dematteis</td>
+                <td><input type="radio" name="attendance2" value="Presente" onclick="updateAttendance('Briciola Dematteis', false, false)"></td>
+                <td><input type="radio" name="attendance2" value="Assente" onclick="updateAttendance('Briciola Dematteis', true, false)"></td>
+                <td><input type="radio" name="attendance2" value="Ritardo" onclick="updateAttendance('Briciola Dematteis', false, true)"></td>
+                <td id="absence-Briciola Dematteis">0</td>
+                <td id="late-Briciola Dematteis">0</td>
+            </tr>
+			<tr>
+                <td>Lampo Benua</td>
+                <td><input type="radio" name="attendance18" value="Presente" onclick="updateAttendance('Lampo Benua', false, false)"></td>
+                <td><input type="radio" name="attendance18" value="Assente" onclick="updateAttendance('Lampo Benua', true, false)"></td>
+                <td><input type="radio" name="attendance18" value="Ritardo" onclick="updateAttendance('Lampo Benua', false, true)"></td>
+                <td id="absence-Lampo Benua">0</td>
+                <td id="late-Lampo Benua">0</td>
+        </tr>
+      			<tr>
+                <td>Cane Dematteis</td>
+                <td><input type="radio" name="attendance19" value="Presente" onclick="updateAttendance('Cane Dematteis', false, false)"></td>
+                <td><input type="radio" name="attendance19" value="Assente" onclick="updateAttendance('Cane Dematteis', true, false)"></td>
+                <td><input type="radio" name="attendance19" value="Ritardo" onclick="updateAttendance('Cane Dematteis', false, true)"></td>
+                <td id="absence-Cane Dematteis">0</td>
+                <td id="late-Cane Dematteis">0</td>
+        </tr>
+      			<tr>
+                <td>Cane Benua</td>
+                <td><input type="radio" name="attendance20" value="Presente" onclick="updateAttendance('Cane Benua', false, false)"></td>
+                <td><input type="radio" name="attendance20" value="Assente" onclick="updateAttendance('Cane Benua', true, false)"></td>
+                <td><input type="radio" name="attendance20" value="Ritardo" onclick="updateAttendance('Cane Benua', false, true)"></td>
+                <td id="absence-Cane Benua">0</td>
+                <td id="late-Cane Benua">0</td>
+        </tr>
+      			<tr>
+                <td>Mician Dematteis</td>
+                <td><input type="radio" name="attendance21" value="Presente" onclick="updateAttendance('Mician Dematteis', false, false)"></td>
+                <td><input type="radio" name="attendance21" value="Assente" onclick="updateAttendance('Mician Dematteis', true, false)"></td>
+                <td><input type="radio" name="attendance21" value="Ritardo" onclick="updateAttendance('Mician Dematteis', false, true)"></td>
+                <td id="absence-Mician Dematteis">0</td>
+                <td id="late-Mician Dematteis">0</td>
+        </tr>
+      			<tr>
+                <td>Cicciobello Pastelli</td>
+                <td><input type="radio" name="attendance22" value="Presente" onclick="updateAttendance('Cicciobello Pastelli', false, false)"></td>
+                <td><input type="radio" name="attendance22" value="Assente" onclick="updateAttendance('Cicciobello Pastelli', true, false)"></td>
+                <td><input type="radio" name="attendance22" value="Ritardo" onclick="updateAttendance('Cicciobello Pastelli', false, true)"></td>
+                <td id="absence-Cicciobelli Pastelli">0</td>
+                <td id="late-cicciobello Pastelli">0</td>
+        </tr>
+      			<tr>
+                <td>Cattivo pastelli</td>
+                <td><input type="radio" name="attendance23" value="Presente" onclick="updateAttendance('Cattivo Pastelli', false, false)"></td>
+                <td><input type="radio" name="attendance23" value="Assente" onclick="updateAttendance('Cattivo Pastelli', true, false)"></td>
+                <td><input type="radio" name="attendance23" value="Ritardo" onclick="updateAttendance('Cattivo Pastelli', false, true)"></td>
+                <td id="absence-Cattivo Pastelli">0</td>
+                <td id="late-Cattivo Pastelli">0</td>
+        </tr>
+        <tr>
+                <td>Bambola Fagiolini</td>
+                <td><input type="radio" name="attendance24" value="Presente" onclick="updateAttendance('Bambola Fagiolini', false, false)"></td>
+                <td><input type="radio" name="attendance24" value="Assente" onclick="updateAttendance('Bambola Fagiolini', true, false)"></td>
+                <td><input type="radio" name="attendance24" value="Ritardo" onclick="updateAttendance('Bambola Fagiolini', false, true)"></td>
+                <td id="absence-Bmbola Fagiolini">0</td>
+                <td id="late-Bambola Fagiolini">0</td>
+        </tr>
+         <tr>
+                <td>Teschio Temperini</td>
+                <td><input type="radio" name="attendance25" value="Presente" onclick="updateAttendance('Teschio Temperini', false, false)"></td>
+                <td><input type="radio" name="attendance25" value="Assente" onclick="updateAttendance('Teschio Temperini', true, false)"></td>
+                <td><input type="radio" name="attendance25" value="Ritardo" onclick="updateAttendance('Teschio Temperini', false, true)"></td>
+                <td id="absence-Teschio Temperini">0</td>
+                <td id="late-Teschio Temperini">0</td>
+        </tr>
+         <tr>
+                <td>Robottina Temperini</td>
+                <td><input type="radio" name="attendance26" value="Presente" onclick="updateAttendance('Robottina Temperini', false, false)"></td>
+                <td><input type="radio" name="attendance26" value="Assente" onclick="updateAttendance('Robottiba Temperini', true, false)"></td>
+                <td><input type="radio" name="attendance26" value="Ritardo" onclick="updateAttendance('Robottina Temperini', false, true)"></td>
+                <td id="absence-Robottina Temperini">0</td>
+                <td id="late-Robottinba Temperini">0</td>
+        </tr>
         </tbody>
     </table>
 
+    <button onclick="calcolaTotali()">Calcola Totali</button>
+
+    <p class="totali">Totali presenze: <span id="totali-presenze">0</span></p>
+    <p class="totali">Totali assenze: <span id="totali-assenze">0</span></p>
+    <p class="totali">Totali ritardi: <span id="totali-ritardi">0</span></p>
+
     <script>
-        const students = [
-            'Stellina Dematteis', 'Tartaruga Benua', 'Yucky Benua', 'Lollo Benua', 'Briciola Dematteis',
-            'Leonard Benua', 'Sparcky Benua', 'Flaffy Dematteis', 'Tina Dematteis', 'Grigetta Benua', 
-            'Luna Dematteis', 'Luna Benua', 'Kendy Dematteis', 'Papero Benua', 'Attiglio Dematteis',
-            'Sunny Benua', 'Curt Dematteis', 'Lampo Benua', 'Cane Dematteis', 'Cane Benua',
-            'Mician Dematteis', 'Cicciobello Pastelli', 'Michael Arancini', 'Cattivo Pastelli',
-            'Bambola Fagiolini', 'Teschio Temperini', 'Robottina Temperini'
-        ];
+        function calcolaTotali() {
+            // Inizializza i contatori
+            let presenze = 0;
+            let assenze = 0;
+            let ritardi = 0;
 
-        // Carica i dati salvati o crea una struttura di dati vuota
-        const loadData = () => JSON.parse(localStorage.getItem('attendanceData')) || {};
+            // Trova tutti i radio button selezionati
+            const inputs = document.querySelectorAll('input[type="radio"]:checked');
 
-        // Salva i dati in localStorage
-        const saveData = (data) => localStorage.setItem('attendanceData', JSON.stringify(data));
-
-        // Dati iniziali (vuoti o recuperati da localStorage)
-        let attendanceData = loadData();
-
-        // Funzione per aggiornare i totali e salvare
-        function updateTotals(student) {
-            const row = document.getElementById(`row-${student}`);
-            const presenceCount = attendanceData[student].presenze || 0;
-            const absenceCount = attendanceData[student].assenze || 0;
-            const delayCount = attendanceData[student].ritardi || 0;
-            row.querySelector('.presenze').textContent = presenceCount;
-            row.querySelector('.assenze').textContent = absenceCount;
-            row.querySelector('.ritardi').textContent = delayCount;
-
-            // Salva i dati aggiornati
-            saveData(attendanceData);
-        }
-
-        // Funzione per gestire i click sui pulsanti e aggiornare i dati
-        function handleClick(student, type) {
-            attendanceData[student] = attendanceData[student] || { presenze: 0, assenze: 0, ritardi: 0 };
-            attendanceData[student][type]++;
-            updateTotals(student);
-        }
-
-        // Crea le righe della tabella per ogni studente
-        function createTable() {
-            const tableBody = document.querySelector("#attendanceTable tbody");
-            students.forEach(student => {
-                const row = document.createElement('tr');
-                row.id = `row-${student}`;
-
-                // Nome
-                const nameCell = document.createElement('td');
-                nameCell.textContent = student;
-                row.appendChild(nameCell);
-
-                // Bottone Presente
-                const presentCell = document.createElement('td');
-                const presentBtn = document.createElement('button');
-                presentBtn.textContent = 'Presente';
-                presentBtn.onclick = () => handleClick(student, 'presenze');
-                presentCell.appendChild(presentBtn);
-                row.appendChild(presentCell);
-
-                // Bottone Assente
-                const absentCell = document.createElement('td');
-                const absentBtn = document.createElement('button');
-                absentBtn.textContent = 'Assente';
-                absentBtn.onclick = () => handleClick(student, 'assenze');
-                absentCell.appendChild(absentBtn);
-                row.appendChild(absentCell);
-
-                // Bottone Ritardo
-                const delayCell = document.createElement('td');
-                const delayBtn = document.createElement('button');
-                delayBtn.textContent = 'Ritardo';
-                delayBtn.onclick = () => handleClick(student, 'ritardi');
-                delayCell.appendChild(delayBtn);
-                row.appendChild(delayCell);
-
-                // Totali
-                const totalPresenceCell = document.createElement('td');
-                totalPresenceCell.className = 'presenze';
-                row.appendChild(totalPresenceCell);
-
-                const totalAbsenceCell = document.createElement('td');
-                totalAbsenceCell.className = 'assenze';
-                row.appendChild(totalAbsenceCell);
-
-                const totalDelayCell = document.createElement('td');
-                totalDelayCell.className = 'ritardi';
-                row.appendChild(totalDelayCell);
-
-                // Append the row to the table
-                tableBody.appendChild(row);
-
-                // Aggiorna i totali iniziali se presenti
-                updateTotals(student);
+            // Conta le scelte
+            inputs.forEach((input) => {
+                if (input.value === "presente") {
+                    presenze++;
+                } else if (input.value === "assente") {
+                    assenze++;
+                } else if (input.value === "ritardo") {
+                    ritardi++;
+                }
             });
+
+            // Aggiorna i totali sul documento
+            document.getElementById('totali-presenze').textContent = presenze;
+            document.getElementById('totali-assenze').textContent = assenze;
+            document.getElementById('totali-ritardi').textContent = ritardi;
+        }
+    </script>
+</body>
+</html>
+    <script>
+        // Funzione per caricare il contenuto dal local storage al caricamento della pagina
+        function loadContent() {
+            const savedContent = localStorage.getItem('scolasticaContent');
+            if (savedContent) {
+                document.getElementById('content').value = savedContent;
+            }
         }
 
-        // Creazione della tabella all'avvio
-        createTable();
-    </script>
+        // Funzione per salvare il contenuto nel local storage
+        function saveContent() {
+            const content = document.getElementById('content').value;
+            localStorage.setItem('scolasticaContent', content);
+            alert("Contenuto salvato!");
+        }
 
+        // Carica il contenuto automaticamente al caricamento della pagina
+        window.onload = loadContent;
+    </script>
 </body>
 </html>
