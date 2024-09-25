@@ -25,6 +25,9 @@
         input[type="number"] {
             width: 60px;
         }
+        #tabellaVoti {
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -44,7 +47,7 @@
     <button onclick="creaTabella()">Crea</button>
 </div>
 
-<div id="tabellaVoti" style="margin-top: 20px;"></div>
+<div id="tabellaVoti"></div>
 
 <script>
     const studenti = [
@@ -73,23 +76,40 @@
             return;
         }
 
-        let tabellaHTML = `<h3>Verifica del ${giorno} - ${descrizione} (${materia})</h3>`;
-        tabellaHTML += `<table><tr><th>Studente</th><th>Voto</th></tr>`;
-
-        studenti.forEach(studente => {
-            tabellaHTML += `<tr>
-                <td>${studente}</td>
-                <td><input type="number" min="10" max="100" placeholder="Voto"></td>
-            </tr>`;
-        });
-
-        tabellaHTML += `</table>`;
-        document.getElementById('tabellaVoti').innerHTML = tabellaHTML;
+        const verificaId = `verifica_${giorno}_${descrizione}`;
+        const tabellaHTML = `
+            <h3>Verifica del ${giorno} - ${descrizione} (${materia})</h3>
+            <table>
+                <tr><th>Studente</th><th>Voto</th></tr>
+                ${studenti.map(studente => `
+                    <tr>
+                        <td>${studente}</td>
+                        <td>
+                            <input type="number" min="10" max="100" placeholder="Voto" 
+                            onchange="salvaVoto('${verificaId}', '${studente}', this.value)" 
+                            value="${getVoto(verificaId, studente)}">
+                        </td>
+                    </tr>`).join('')}
+            </table>
+        `;
+        
+        document.getElementById('tabellaVoti').innerHTML += tabellaHTML;
 
         // Clear the input fields
         document.getElementById('giorno').value = '';
         document.getElementById('descrizione').value = '';
         document.getElementById('materia').value = '';
+    }
+
+    function salvaVoto(verificaId, studente, voto) {
+        let verificaData = JSON.parse(localStorage.getItem(verificaId)) || {};
+        verificaData[studente] = voto;
+        localStorage.setItem(verificaId, JSON.stringify(verificaData));
+    }
+
+    function getVoto(verificaId, studente) {
+        const verificaData = JSON.parse(localStorage.getItem(verificaId));
+        return verificaData ? verificaData[studente] || '' : '';
     }
 </script>
 
